@@ -1,6 +1,7 @@
 #include "Motor.h"
 #include "Arduino.h"
 
+
 Motor::Motor(int speed_pin, int out_pin, int in_pin) : 
     _speed_pin(speed_pin),
     _in_pin(in_pin),

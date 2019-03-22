@@ -26,8 +26,7 @@ class MyoConnection {
         static void handle_pose_data(MyoPoseData& data);
         MyoConnection::Poses update_pose();
 
-
-    private: // helper
+    private: // helper functions
         MyoConnection::Poses string_to_pose(String pose);
 
     private:

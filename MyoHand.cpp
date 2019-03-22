@@ -1,7 +1,7 @@
 #include "MyoHand.h"
 #include "Arduino.h"
 
-MyoHand::MyoHand(Motor wrist_mot, Motor pinch_mot, Motor grasp_mot, MyoConnection connection, 
+MyoHand::MyoHand(Motor& wrist_mot, Motor& pinch_mot, Motor& grasp_mot, MyoConnection& connection, 
                 int thumb, int index, int middle, int ring, int pinky) :
     _wrist_motor(wrist_mot),
     _pinch_motor(pinch_mot),

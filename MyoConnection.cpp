@@ -1,6 +1,7 @@
 #include "MyoConnection.h"
 #include "Arduino.h"
 
+
 MyoConnection::MyoConnection(int rx_pin, int tx_pin) :
     _serial_connection(SoftwareSerial(rx_pin, tx_pin)),
     _myo_connection(this->_serial_connection)
@@ -9,11 +10,13 @@ MyoConnection::MyoConnection(int rx_pin, int tx_pin) :
 
 void MyoConnection::init() {
     Serial.begin(115200);
-    _serial_connection.begin(115200);
-    _myo_connection.begin();
-    _myo_connection.setPoseEventCallBack(handle_pose_data);
-    _myo_connection.enablePoseData();
-    _myo_connection.unlockMyo();
+    Serial.println("Looking for connection...");
+    this->_serial_connection.begin(115200);
+    this->_myo_connection.begin();
+    this->_myo_connection.setPoseEventCallBack(handle_pose_data);
+    this->_myo_connection.enablePoseData();
+    this->_myo_connection.unlockMyo();
+    Serial.println("Connected!");
 }
 
 void MyoConnection::handle_pose_data(MyoPoseData& data) {

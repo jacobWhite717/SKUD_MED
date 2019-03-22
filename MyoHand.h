@@ -7,17 +7,18 @@
 
 class MyoHand {
     public:
-        MyoHand(Motor wrist_mot, Motor pinch_mot, Motor grasp_mot, MyoConnection connection, 
+        MyoHand(Motor& wrist_mot, Motor& pinch_mot, Motor& grasp_mot, MyoConnection& connection, 
                 int thumb, int index, int middle, int ring, int pinky);
         void init();
 
         void update_hand();
 
-    private: // helpers
+    private: // helper functions
         void update_pose(); 
         void read_FSRs();
         void stop_motors();
 
+        // hand positions
         void rest();
         void fist();
         void wave_in();
@@ -27,12 +28,12 @@ class MyoHand {
 
     private:
         // BTLE connection to Myo armband
-        MyoConnection _connection;
+        MyoConnection& _connection;
 
         // Motor control logic
-        Motor _wrist_motor;
-        Motor _pinch_motor;
-        Motor _grasp_motor;
+        Motor& _wrist_motor;
+        Motor& _pinch_motor;
+        Motor& _grasp_motor;
         
         // fsr pins / read val vars
         int _thumb_fsr_pin;
